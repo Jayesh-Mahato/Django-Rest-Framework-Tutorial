@@ -2,7 +2,7 @@ import requests
 
 # endpoint = "https://httpbin.org/status/200/"
 # endpoint = "https://httpbin.org/anything"
-endpoint = "http://localhost:8000/"
+endpoint = "http://localhost:8000/api/"
 
 # HTTP Request
 get_response = requests.get(endpoint, json={"query:":"Hello World"}) 
@@ -11,5 +11,7 @@ get_response = requests.get(endpoint, json={"query:":"Hello World"})
 
 # print(get_response.json())
 print(get_response.status_code)
+print(get_response.json())
+print(get_response.json()['message'])
 
 
