@@ -24,6 +24,7 @@ class ProductSerializer(serializers.ModelSerializer):
         lookup_field='pk'
     )
     title = serializers.CharField(validators=[validators.validate_title_no_hello, validators.unique_product_title])
+    body = serializers.CharField(source='content')
     # name = serializers.CharField(source='title', read_only=True)
     # email = serializers.EmailField(source='user.email', read_only=True)
     # email = serializers.EmailField(write_only=True)
@@ -38,9 +39,12 @@ class ProductSerializer(serializers.ModelSerializer):
             'pk',
             'title',
             # 'name',
-            'content',
+            # 'content',
+            'body',
             'price',
             'sale_price',
+            'public',
+            'path',
             # 'my_discount',
             # 'my_user_data',
             # 'related_products'
